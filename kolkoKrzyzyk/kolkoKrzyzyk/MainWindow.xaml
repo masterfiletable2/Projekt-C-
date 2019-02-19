@@ -1,12 +1,141 @@
-﻿<Window x:Class="kolkoKrzyzyk.MainWindow"
+﻿<Window x:Class="TicTacToe.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:kolkoKrzyzyk"
+        xmlns:local="clr-namespace:TicTacToe"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="MainWindow" Height="600" Width="800"
+        Loaded="Window_Loaded">
+
+    <Window.Resources>
+        <Image x:Key="TransparentImage" Source="Images/Transparent.bmp" />
+    </Window.Resources>
+
+    <Grid Name="MainScene" Width="767" Height="584" MinWidth="27">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="{Binding ElementName=MainScene, Path=Height}" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- plansza gry -->
+        <Border Grid.Column="0" BorderThickness="2" BorderBrush="CadetBlue" Grid.ColumnSpan="2" Margin="200,-26,0,26">
+            <Grid ShowGridLines="True" Margin="2,8,-2,-8">
+                <Grid.Resources>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="Transparent" />
+                        <Setter Property="BorderThickness" Value="0" />
+                        <Setter Property="Foreground" Value="Transparent" />
+                        <Setter Property="HorizontalAlignment" Value="Stretch" />
+                        <Setter Property="VerticalAlignment" Value="Stretch" />
+                        <!--<Ustawienia siatki />-->
+                    </Style>
+                </Grid.Resources>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+
+                    <ColumnDefinition Width="113*"/>
+                    <ColumnDefinition Width="113*" />
+                    <ColumnDefinition Width="113*" />
+                    <ColumnDefinition Width="113*" />
+                    <ColumnDefinition Width="113*" />
+                </Grid.ColumnDefinitions>
+
+                <Image Grid.Row="0" Grid.RowSpan="5" Grid.Column="0" Grid.ColumnSpan="5" Source="Images/background.png" Height="544" />
+
+                <Button Name="chessPosition00" Grid.Row="0" Grid.Column="0" Tag="0,0" Click="cmd_PlayerMove" Content="{StaticResource TransparentImage}" Grid.ColumnSpan="1" />
+                <Button Name="chessPosition01" Grid.Row="0" Grid.Column="1" Tag="0,1" Click="cmd_PlayerMove" Content="{StaticResource TransparentImage}" />
+                <Button Name="chessPosition02" Grid.Row="0" Grid.Column="2" Tag="0,2" Click="cmd_PlayerMove" Content="{StaticResource TransparentImage}" />
+                <Button Name="chessPosition03" Grid.Row="0" Grid.Column="3" Tag="0,3" Click="cmd_PlayerMove" Content="{StaticResource TransparentImage}" />
+                <Button Name="chessPosition04" Grid.Row="0" Grid.Column="4" Tag="0,4" Click="cmd_PlayerMove" Content="{StaticResource TransparentImage}" />
+                <Button Name="chessPosition10" Grid.Row="1" Grid.Column="0" Tag="1,0" Click="cmd_PlayerMove" Content="{StaticResource TransparentImage}" Grid.ColumnSpan="1" />
+                <Button Name="chessPosition11" Grid.Row="1" Grid.Column="1" Tag="1,1" Click="cmd_PlayerMove" Content="{StaticResource TransparentImage}" />
+                <Button Name="chessPosition12" Grid.Row="1" Grid.Column="2" Tag="1,2" Click="cmd_PlayerMove" Content="{StaticResource TransparentImage}" />
+                <Button Name="chessPosition13" Grid.Row="1" Grid.Column="3" Tag="1,3" Click="cmd_PlayerMove" Content="{StaticResource TransparentImage}" />
+                <Button Name="chessPosition14" Grid.Row="1" Grid.Column="4" Tag="1,4" Click="cmd_PlayerMove" Content="{StaticResource TransparentImage}" />
+                <Button Name="chessPosition20" Grid.Row="2" Grid.Column="0" Tag="2,0" Click="cmd_PlayerMove" Content="{StaticResource TransparentImage}" Grid.ColumnSpan="1" />
+                <Button Name="chessPosition21" Grid.Row="2" Grid.Column="1" Tag="2,1" Click="cmd_PlayerMove" Content="{StaticResource TransparentImage}" />
+                <Button Name="chessPosition22" Grid.Row="2" Grid.Column="2" Tag="2,2" Click="cmd_PlayerMove" Content="{StaticResource TransparentImage}" />
+                <Button Name="chessPosition23" Grid.Row="2" Grid.Column="3" Tag="2,3" Click="cmd_PlayerMove" Content="{StaticResource TransparentImage}" />
+                <Button Name="chessPosition24" Grid.Row="2" Grid.Column="4" Tag="2,4" Click="cmd_PlayerMove" Content="{StaticResource TransparentImage}" />
+                <Button Name="chessPosition30" Grid.Row="3" Grid.Column="0" Tag="3,0" Click="cmd_PlayerMove" Content="{StaticResource TransparentImage}" Grid.ColumnSpan="1" />
+                <Button Name="chessPosition31" Grid.Row="3" Grid.Column="1" Tag="3,1" Click="cmd_PlayerMove" Content="{StaticResource TransparentImage}" />
+                <Button Name="chessPosition32" Grid.Row="3" Grid.Column="2" Tag="3,2" Click="cmd_PlayerMove" Content="{StaticResource TransparentImage}" />
+                <Button Name="chessPosition33" Grid.Row="3" Grid.Column="3" Tag="3,3" Click="cmd_PlayerMove" Content="{StaticResource TransparentImage}" />
+                <Button Name="chessPosition34" Grid.Row="3" Grid.Column="4" Tag="3,4" Click="cmd_PlayerMove" Content="{StaticResource TransparentImage}" />
+                <Button Name="chessPosition40" Grid.Row="4" Grid.Column="0" Tag="4,0" Click="cmd_PlayerMove" Content="{StaticResource TransparentImage}" Grid.ColumnSpan="1" />
+                <Button Name="chessPosition41" Grid.Row="4" Grid.Column="1" Tag="4,1" Click="cmd_PlayerMove" Content="{StaticResource TransparentImage}" />
+                <Button Name="chessPosition42" Grid.Row="4" Grid.Column="2" Tag="4,2" Click="cmd_PlayerMove" Content="{StaticResource TransparentImage}" />
+                <Button Name="chessPosition43" Grid.Row="4" Grid.Column="3" Tag="4,3" Click="cmd_PlayerMove" Content="{StaticResource TransparentImage}" />
+                <Button Name="chessPosition44" Grid.Row="4" Grid.Column="4" Tag="4,4" Click="cmd_PlayerMove" Content="{StaticResource TransparentImage}" />
+
+            </Grid>
+        </Border>
+
+        <!-- ustawienia rozgrywki -->
+        <Grid Margin="-18,0,0,0" Width="220" HorizontalAlignment="Left">
+            <Grid.Background>
+                <LinearGradientBrush>
+                    <GradientStop Offset="0.2" Color="#FFBB2C2C" />
+                    <GradientStop Offset="0.4" Color="#FFDE2A2A" />
+                    <GradientStop Offset="0.6" Color="#FFAA1212" />
+                    <GradientStop Offset="0.8" Color="#FF760808" />
+                    <GradientStop Offset="1.0" Color="#FF530404" />
+                </LinearGradientBrush>
+            </Grid.Background>
+
+            <Grid.Resources>
+                <Style TargetType="TextBlock">
+                    <Setter Property="FontSize" Value="24" />
+                    <Setter Property="FontFamily" Value="Droid Sans" />
+                </Style>
+
+                <Style TargetType="RadioButton">
+                    <Setter Property="FontSize" Value="24" />
+                    <Setter Property="FontFamily" Value="Droid Sans" />
+                    <Setter Property="Foreground" Value="OrangeRed" />
+                    <Setter Property="VerticalContentAlignment" Value="Center" />
+                </Style>
+
+                <Style TargetType="Button">
+                    <Setter Property="FontSize" Value="24" />
+                    <Setter Property="FontFamily" Value="Droid Sans" />
+                    <Setter Property="Foreground" Value="DarkOrange" />
+                </Style>
+            </Grid.Resources>
+
+            <StackPanel VerticalAlignment="Center" Margin="10,0,0,0">
+                <Border Margin="0,0,10,0" BorderThickness="2" BorderBrush="Black">
+                    <Grid Margin="2" Background="White">
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center">Komputer</TextBlock>
+                        <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center">Gracz</TextBlock>
+                        <Image Grid.Row="0" Grid.Column="1" Source="Images/x.png" Height="40" />
+                        <Image Grid.Row="1" Grid.Column="1" Source="Images/o.png" Height="40" />
+                    </Grid>
+                </Border>
+
+                <TextBlock Margin="0,30,0,10" Foreground="Black" FontWeight="Bold" HorizontalAlignment="Center">Wybierz opcję</TextBlock>
+                <RadioButton Name="rbAiFirst" GroupName="Order" FontSize="16" HorizontalAlignment="Center">Rozpoczyna komputer</RadioButton>
+                <RadioButton Name="rbPlayerFirst" GroupName="Order" FontSize="16" HorizontalAlignment="Center">Rozpoczyna Gracz</RadioButton>
+                <Button Name="cmdStartGame" Click="cmdStartGame_Click" Margin="10,20,10,0" Foreground="#FF040200" Background="#FF1E238B" BorderBrush="Black" FontFamily="MS Gothic">START
+                </Button>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Window>

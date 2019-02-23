@@ -124,5 +124,11 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\background.png" />
+    <Resource Include="Images\o.png" />
+    <Resource Include="Images\Transparent.bmp" />
+    <Resource Include="Images\x.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

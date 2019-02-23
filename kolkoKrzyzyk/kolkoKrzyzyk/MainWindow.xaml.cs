@@ -115,7 +115,7 @@ namespace kolkoKrzyzyk
                 // Sprawdź, czy gracz wygrywa.
                 if (PlayerWin())
                 {
-                    MessageBox.Show("Wygra�e� z komputerem");
+                    MessageBox.Show("Wygrałeś z komputerem");
                     return;
                 }
 
@@ -126,7 +126,7 @@ namespace kolkoKrzyzyk
 
                     // Sprawdź, czy AI wygrywa.
                     if (AiWin())
-                        MessageBox.Show("Komputer wygra� z Tob�!");
+                        MessageBox.Show("Komputer wygrał z Tobą!");
                 }
             }
         }

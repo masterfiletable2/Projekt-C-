@@ -32,7 +32,7 @@ namespace kolkoKrzyzyk
                 {
                     for (int j = 0; j < Size; j++)
                     {
-                        if (this[i, j] == ChessPiece.Blank)
+                        if (this[i, j] == ChessPiece.Clear)
                             return false;
                     }
                 }
@@ -62,7 +62,7 @@ namespace kolkoKrzyzyk
             for (int i = 0; i < Board.Size; i++)
             {
                 for (int j = 0; j < Board.Size; j++)
-                    board[i, j] = ChessPiece.Blank;
+                    board[i, j] = ChessPiece.Clear;
             }
         }
 
@@ -75,7 +75,7 @@ namespace kolkoKrzyzyk
         /// <returns>Prawda, jeśli element planszy został pomyślnie dodany (tzn. Komórka była pusta), w przeciwnym razie false.</returns>
         public bool AddChessPiece(int rowIndex, int columnIndex, ChessPiece chessPiece)
         {
-            if (this[rowIndex, columnIndex] == ChessPiece.Blank)
+            if (this[rowIndex, columnIndex] == ChessPiece.Clear)
             {
                 this[rowIndex, columnIndex] = chessPiece;
                 return true;
@@ -91,7 +91,7 @@ namespace kolkoKrzyzyk
             for (int i = 0; i < Size; i++)
             {
                 for (int j = 0; j < Size; j++)
-                    this[i, j] = ChessPiece.Blank;
+                    this[i, j] = ChessPiece.Clear;
             }
         }
 

@@ -4,7 +4,7 @@ namespace kolkoKrzyzyk
     /// <summary>
     /// Reprezentacja figur w grze
     /// </summary>
-    public enum Figury
+    public enum ChessPiece
     {
         /// <summary>
         /// Puste pole.
